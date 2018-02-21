@@ -1,0 +1,73 @@
+.Container-title {
+    font-size: 30px;
+    position: relative;
+    left: 100px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: lighter;
+    padding: 20px;
+}
+
+.Container-books1 {
+    font-size: 30px;
+    position: relative;
+    left: 100px;
+}
+
+.Container-books-row {
+    width:20%;
+    display: inline-block;
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.Container-books-image {
+    display: inline-block;
+}
+
+.Container-books-image {
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+}
+
+.Container-books-lik {
+    float: right;
+}
+
+.Container-books-bg {
+    position: relative;
+    left: -30px;
+    background-color: #eb8d4c;
+}
+
+.Container-books-desc {
+    position: relative;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.Container-books-name {
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Container-books-rating {
+    position: relative;
+    font-size: 30px;
+    font-weight: lighter;
+    font-family: Helvetica;
+}
+
+.Container-books-author {
+    position: relative;
+    font-size: 10px;
+    float: right;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Container-books-outer {
+    display: inline;
+}
