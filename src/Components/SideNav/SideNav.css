@@ -1,5 +1,5 @@
 .SideNav-bar {
-    width: 80px;
+    width: 70px;
     height: 100%;
     position: fixed;
     background: #303a47;
@@ -22,13 +22,12 @@
 #SideNav-logo {
     color: white;
     font-family: Helvetica;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .material-icons {
     position: relative;
-    left: 5px;
     color: white;
     font-size: 30px;
 }
