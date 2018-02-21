@@ -18,6 +18,12 @@ const bookReducer = (prevState = defaultState, action) => {
         likes: action.payload,
       };
     }
+    case 'STORE_DATA': {
+      return {
+        ...prevState,
+        likes: action.payload,
+      };
+    }
     default: return prevState;
   }
 };

@@ -17,6 +17,7 @@ class Container extends React.Component {
     Container.propTypes = {
       getBooks: PropTypes.func.isRequired,
       getLikes: PropTypes.func.isRequired,
+      storeData: PropTypes.func.isRequired,
       savedBooks: PropTypes.array.isRequired,
     };
   }
@@ -43,6 +44,11 @@ class Container extends React.Component {
   }
 
   onChangeHandler = () => {
+    const options = {
+      url: '/store',
+      method: 'POST',
+    };
+    axios(options);
     this.setState({
       load: true,
     });
@@ -156,7 +162,7 @@ class Container extends React.Component {
         </div>
       );
     }
-    return <div>hello</div>;
+    return <div />;
   }
 
   render() {
@@ -173,6 +179,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getBooks: (books) => { dispatch(action.getBooks(books)); },
   getLikes: (likes) => { dispatch(action.getLikes(likes)); },
+  storeData: () => { dispatch(action.getLikes()); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
