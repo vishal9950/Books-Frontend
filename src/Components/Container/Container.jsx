@@ -89,15 +89,55 @@ class Container extends React.Component {
         ));
       }
 
+      const rows2 = [];
+      for (let i = 0; i < auth2.length; i += 1) {
+        rows2.push((
+          <div className="Container-books-outer">
+            <div className="Container-books-row">
+              <div className="Container-books-image">
+                <img className="Container-books-image" alt="book_img" src="https://images-na.ssl-images-amazon.com/images/I/51VNlzbfpXL._SX331_BO1,204,203,200_.jpg" />
+                <div className="Container-books-like">
+                  <button className="Container-btn"><i className="material-icons">favorite</i></button>
+                </div>
+              </div>
+
+              <div className="Container-books-desc">
+                <div className="Container-books-name">
+                  {auth2[i].name}
+                </div>
+                <div className="Container-books-rating">
+                  {auth2[i].rating}
+                </div>
+                <div className="Container-books-author">
+                  {(auth2[i].author).toUpperCase()}
+                </div>
+              </div>
+            </div>
+          </div>
+        ));
+      }
+
       console.log(auth1, auth2);
       return (
-        <div className="Container-auth1">
-          <div className="Container-title">
-            {auth1[0].author}
+        <div>
+          <div className="Container-auth1">
+            <div className="Container-title">
+              {auth1[0].author}
+            </div>
+            <div className="Container-books1">
+              <div className="Container-books-bg">
+                {rows1}
+              </div>
+            </div>
           </div>
-          <div className="Container-books1">
-            <div className="Container-books-bg">
-              {rows1}
+          <div className="Container-auth1">
+            <div className="Container-title">
+              {auth2[0].author}
+            </div>
+            <div className="Container-books1">
+              <div className="Container-books-bg">
+                {rows2}
+              </div>
             </div>
           </div>
         </div>
