@@ -17,7 +17,6 @@ class Container extends React.Component {
     Container.propTypes = {
       getBooks: PropTypes.func.isRequired,
       getLikes: PropTypes.func.isRequired,
-      storeData: PropTypes.func.isRequired,
       savedBooks: PropTypes.array.isRequired,
     };
   }
@@ -30,10 +29,16 @@ class Container extends React.Component {
 
   componentDidMount() {
     axios.get('/books').then((books) => {
-      if (Object.keys(books).length === 0 && books.constructor === Object) {
+      if (books.length === 0) {
+        const options = {
+          url: '/store',
+          method: 'POST',
+        };
+        axios(options);
         this.setState({
           load: 2,
         });
+        // this.props.storeData();
       } else {
         this.props.getBooks(books.data);
         this.setState({
@@ -44,13 +49,8 @@ class Container extends React.Component {
   }
 
   onChangeHandler = () => {
-    const options = {
-      url: '/store',
-      method: 'POST',
-    };
-    axios(options);
     this.setState({
-      load: true,
+      load: 1,
     });
   }
 
@@ -162,7 +162,7 @@ class Container extends React.Component {
         </div>
       );
     }
-    return <div />;
+    return <div>hello</div>;
   }
 
   render() {
@@ -179,7 +179,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getBooks: (books) => { dispatch(action.getBooks(books)); },
   getLikes: (likes) => { dispatch(action.getLikes(likes)); },
-  storeData: () => { dispatch(action.getLikes()); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
