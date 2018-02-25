@@ -9,15 +9,15 @@ import action from '../../redux/actions';
 class Container extends React.Component {
   constructor(props) {
     super(props);
-
     // this.state = {
     //   load: false,
     // };
     this.getBooks();
     Container.propTypes = {
       getBooks: PropTypes.func.isRequired,
-      // getLikes: PropTypes.func.isRequired,
+      getLikes: PropTypes.func.isRequired,
       savedBooks: PropTypes.array.isRequired,
+      savedLikes: PropTypes.array.isRequired,
     };
   }
 
@@ -81,9 +81,25 @@ class Container extends React.Component {
     });
   }
 
+  onClickHandler = (likeStatus, bookID) => {
+    const like = likeStatus > 0 ? 0 : 1;
+    axios.post(`/like/${bookID}/${like}`).then(() => {
+      this.getBooks();
+    });
+  }
+
   getBooks = () => {
     axios.get('/books').then((books) => {
       this.props.getBooks(books.data);
+      axios.get('/likes').then((allLikes) => {
+        const justLikes = [];
+        for (let i = 0; i < allLikes.data.length; i += 1) {
+          if (allLikes.data[i].likeStatus === 1) {
+            justLikes.push(allLikes.data[i].bookID);
+          }
+        }
+        this.props.getLikes(justLikes);
+      });
     });
   }
 
@@ -119,13 +135,26 @@ class Container extends React.Component {
 
     const rows1 = [];
     for (let i = 0; i < auth1.length; i += 1) {
+      let flag = 0;
+      if (this.props.savedLikes.length > 0) {
+        for (let j = 0; j < this.props.savedLikes.length; j += 1) {
+          if (this.props.savedLikes[j] === auth1[i].bookID) {
+            flag = 1;
+            break;
+          }
+        }
+      }
       rows1.push((
         <div className="Container-books-outer">
           <div className="Container-books-row">
             <div className="Container-books-image">
               <img className="Container-books-image" alt="book_img" src="https://images-na.ssl-images-amazon.com/images/I/51VNlzbfpXL._SX331_BO1,204,203,200_.jpg" />
               <div className="Container-books-like">
-                <button className="Container-btn"><i className="material-icons">favorite</i></button>
+                <button
+                  className={flag > 0 ? 'Container-btn-like' : 'Container-btn-dislike'}
+                  onClick={() => this.onClickHandler(flag, auth1[i].bookID)}
+                ><i className="material-icons" >favorite</i>
+                </button>
               </div>
             </div>
 
@@ -147,13 +176,26 @@ class Container extends React.Component {
 
     const rows2 = [];
     for (let i = 0; i < auth2.length; i += 1) {
+      let flag = 0;
+      if (this.props.savedLikes.length > 0) {
+        for (let j = 0; j < this.props.savedLikes.length; j += 1) {
+          if (this.props.savedLikes[j] === auth2[i].bookID) {
+            flag = 1;
+            break;
+          }
+        }
+      }
       rows2.push((
         <div className="Container-books-outer">
           <div className="Container-books-row">
             <div className="Container-books-image">
               <img className="Container-books-image" alt="book_img" src="https://images-na.ssl-images-amazon.com/images/I/51VNlzbfpXL._SX331_BO1,204,203,200_.jpg" />
               <div className="Container-books-like">
-                <button className="Container-btn"><i className="material-icons">favorite</i></button>
+                <button
+                  className={flag > 0 ? 'Container-btn-like' : 'Container-btn-dislike'}
+                  onClick={() => this.onClickHandler(flag, auth2[i].bookID)}
+                ><i className="material-icons">favorite</i>
+                </button>
               </div>
             </div>
 

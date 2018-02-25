@@ -7,10 +7,29 @@
     padding: 20px;
 }
 
+.material-icons {
+    font-size: 20px;
+    position: relative;
+    left: -3px;
+    top: 2px;
+}
+
 .Container-books1 {
     font-size: 30px;
     position: relative;
     left: 100px;
+}
+
+.Container-btn-like {
+    border-radius: 30px;
+    width: 30px;
+    background-color: red;
+}
+
+.Container-btn-dislike {
+    border-radius: 30px;
+    width: 30px;
+    background-color: lightgrey;
 }
 
 .Container-books-row {
