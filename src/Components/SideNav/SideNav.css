@@ -26,8 +26,8 @@
     font-weight: bold;
 }
 
-.material-icons {
-    position: relative;
+#SideNav-material-icons {
     color: white;
+    left: 0px;
     font-size: 30px;
 }

@@ -26,6 +26,9 @@ class Header extends React.Component {
             {this.state.headerTextRight}
           </span>
         </div>
+        <div className="Header-underline">
+          <hr />
+        </div>
       </div>
     );
   }

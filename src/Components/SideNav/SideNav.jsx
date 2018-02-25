@@ -16,9 +16,9 @@ class SideNav extends React.Component {
         <ul className="SideNav-list">
           <li id="SideNav-logo">{this.state.logoText}</li>
           <li id="SideNav-blank" />
-          <li><i className="material-icons">refresh</i></li>
+          <li><i id="SideNav-material-icons" className="material-icons">refresh</i></li>
           <li id="SideNav-blank2" />
-          <li><i className="material-icons">settings</i></li>
+          <li><i id="SideNav-material-icons" className="material-icons">settings</i></li>
         </ul>
       </div>
     );

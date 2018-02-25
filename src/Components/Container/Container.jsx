@@ -198,7 +198,6 @@ class Container extends React.Component {
                 </button>
               </div>
             </div>
-
             <div className="Container-books-desc">
               <div className="Container-books-name">
                 {auth2[i].name}
