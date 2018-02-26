@@ -27,7 +27,7 @@ class Header extends React.Component {
           </span>
         </div>
         <div className="Header-underline">
-          <hr />
+          <hr className="Header-hr" />
         </div>
       </div>
     );

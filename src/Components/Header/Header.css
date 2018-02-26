@@ -3,11 +3,12 @@
     padding-bottom: 5px;
     width: 20%;
     position: relative;
-    left: 70px;
+    left: 62px;
+    top: -8px;
     text-align: center;
     background-color: #944744;
     color: white;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 10px;
 }
 
 .Header-standard {
@@ -26,4 +27,8 @@
     margin-left: 15%;
     margin-right: 15%;
     margin-top: -5px;
+}
+
+.Header-hr {
+    width: 75%;
 }
